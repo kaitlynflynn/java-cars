@@ -44,6 +44,7 @@ public class CarController
     public List<Car> getByBrand(@PathVariable String brand)
     {
         CarLog message = new CarLog("Search for brand: " +  brand);
+        log.info("Search for brand: " + brand);
         rt.convertAndSend(CarsApplication.QUEUE_NAME, message.toString());
         log.info("Message Sent - Brands Search Complete");
 
